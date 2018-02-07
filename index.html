@@ -15,8 +15,27 @@
     </div>
     <p>
         Items
-    </p>   
-     <input id="items" type="number" name="items">
+    </p>
+    <form>
+        <div class="form-group">
+            <input id="items" type="number" name="items">
+        </div>
+        <div class="form-group">
+            <select id="countryCode">
+                <option value="nl">nl</option>
+                <option value="be">be</option>
+                <option value="lu">lu</option>
+                <option value="du">du</option>
+                <option value="fr">fr</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input id="price" type="number" name="price">
+        </div>
+        <div class="form-group">
+            <button id="submit">Bereken</button>
+        </div>
+    </form>
         <script>
         function calc(items, price, countryCode) {
             const countryCodes = {
