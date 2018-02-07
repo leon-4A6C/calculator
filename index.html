@@ -11,12 +11,37 @@
     
     <script>
         function calc(items, price, countryCode) {
-            const countryCodes = {};
+            const countryCodes = {
+                "be": 1.21,
+                "lu": 1.17,
+                "du": 1.19,
+                "fr": 1.20,
+                "nl": 1.21
+            };
 
             let discount = 0;
 
             if(items > 1000) {
                 discount = 0.03;
+            } else if(items > 5000) {
+                discount = 0.05;
+            } else if(items > 7000) {
+                discount = 0.07;
+            } else if(items > 10000) {
+                discount = 0.1;
+            } else if(items > 50000) {
+                discount = 0.15;
+            }
+
+            let total = items * price * discount
+
+            let TAX = countryCodes[countryCode.toLowerCase()];
+
+            return {
+                price: price,
+                discount: discount * 100,
+                countyCode: countryCode,
+                total: total * TAX
             }
         }
     </script>
